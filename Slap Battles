@@ -1074,6 +1074,84 @@ end
 })
 
 local Button = Tab5:CreateButton({
+	Name = "Get Hammer",
+	Callback = function()
+	             fireclickdetector(game:GetService("Workspace").Toolbox.ClickDetector)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Toolbox.CFrame)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+wait(121)
+for i,v in pairs(workspace.Maze:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+                   end    
+              })
+
+local Button = Tab5:CreateButton({
+	Name = "Fish Farm (Credit to R2O)",
+	Default = false,
+	Callback = function(bool)
+	  fishFarm = bool
+    
+        if bool == true then
+            
+        if game.Players.LocalPlayer.Character:FindFirstChild("entered") and getGlove() == "ZZZZZZZ" then
+            
+            print("READY")
+
+            task.wait()
+            
+            print("-------------------------------------------")
+            
+            task.wait()
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Bed [ OvErCrInGe02#0658 ] "].Bed3.CFrame * CFrame.new(0,0,-1)
+            
+            task.wait(.5)
+            
+            game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+            
+        else
+            
+            print("FAILED TO TELEPORT TO SAFE SPOT PLEASE DO IT MANUALLY")
+        
+        end
+        
+        task.wait()
+        
+            while fishFarm and task.wait() do
+        
+                if getGlove() == "ZZZZZZZ" and workspace:WaitForChild(game.Players.LocalPlayer.Name):FindFirstChild("entered") then
+                
+                    if workspace:WaitForChild(game.Players.LocalPlayer.Name):FindFirstChild("Ragdolled").Value then
+                    
+                        task.wait(1)
+                    
+                        Time += 1 -- Editor Bug ( Works )
+                        
+                        print(Time)
+                    
+                    else
+                    
+                    Time = 0
+                    
+                    end
+                
+                end
+
+            end
+    
+        else
+        
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+             
+end
+end)
+})
+
+local Button = Tab5:CreateButton({
 	Name = "Get Tycoon (Credits to R2O)",
 	Callback = function()
       		repeat task.wait(.005)
@@ -1104,7 +1182,7 @@ bobFarm = bool
             task.wait(10.2)
         end
                     end    
-                })
+                })		
 
 local Toggle = Tab5:CreateToggle({
 	Name = "Brick Farm",
@@ -1133,6 +1211,19 @@ antiAdmins = bool
     end
 end
 })
+
+local Toggle = Tab3:CreateToggle({
+                    Name = "Anti Ban",
+                    Default = false,
+                    Callback = function(bool)
+antiBan = bool
+    if bool == true then
+        game.ReplicatedStorage.Ban.Name = "antiAdminBan"
+        end)
+    end
+end
+})
+
 
 local Toggle = Tab3:CreateToggle({
                     Name = "Anti Ragdoll (Reset on first use) (Credits to R2O)",
