@@ -1,4 +1,4 @@
--- if you have problems message Guy that exists#1915
+- if you have problems message Guy that exists#1915
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
